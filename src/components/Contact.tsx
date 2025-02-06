@@ -1,14 +1,17 @@
-import '../Contact.css'
 import {useEffect, useState} from "react";
 import {base_url, period_month} from "../utils/constants.ts";
 
 const Contact = () => {
     const [planets, setPlanets] = useState(['wait...']);
 
-    async function fillPlanets(url) {
+    interface Planet {
+        name: string
+    }
+
+    async function fillPlanets(url: string) {
         const response = await fetch(url);
-        const data = await response.json();
-        const planets = data.map(item => item.name);
+        const data: Planet[] = await response.json();
+        const planets: string[] = data.map(item => item.name);
         setPlanets(planets);
         localStorage.setItem('planets', JSON.stringify({
             payload: planets,
@@ -17,7 +20,7 @@ const Contact = () => {
     }
 
     useEffect(() => {
-        const planets = JSON.parse(localStorage.getItem('planets'));
+        const planets = JSON.parse(localStorage.getItem('planets') ?? '');
         if (planets && ((Date.now() - planets.time) < period_month)) {
             setPlanets(planets.payload);
         } else {
@@ -56,30 +59,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
-//     return (
-//         <form className="container" onSubmit={e => {
-//             e.preventDefault();
-//         }}>
-//             <label>First Name
-//                 <input type="text" name="firstname" placeholder="Your name.."/>
-//             </label>
-//             <label>Last Name
-//                 <input type="text" name="lastname" placeholder="Your last name.."/>
-//             </label>
-//             <label>Planet
-//                 <select name="planet">
-//                     {planets.map(item => <option value={item} key={item}>{item}</option>)}
-//                 </select>
-//             </label>
-//
-//             <label>Subject
-//                 <textarea name="subject" placeholder="Write something.."></textarea>
-//             </label>
-//             <button type="submit">Submit</button>
-//         </form>
-//     )
-// };
-//
-// export default Contact;

@@ -1,6 +1,7 @@
 import NavItem from "./NavItem.tsx";
 import {navItems} from "../utils/constants.ts";
 
+// @ts-ignore
 const Navigation = ({changePage}) => {
     return (
         <nav className={'fixed top-2 left-12'}>

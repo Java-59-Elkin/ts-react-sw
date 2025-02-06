@@ -1,11 +1,15 @@
-import StyledButton from "./StyledButton.tsx";
+import StyledButton from "./StyledButton.jsx";
 
-const NavItem = ({itemTitle, changePage}) => {
+interface NavItemProps {
+    itemTitle: string,
+    changePage: (page: string) => void
+}
+
+const NavItem: React.FC<NavItemProps> = ({itemTitle, changePage}) => {
     return (
         <div onClick={() => changePage(itemTitle)}>
-            <StyledButton content1={itemTitle} />
+            <StyledButton mainContent={itemTitle} addContent='' />
         </div>
-
     );
 };
 

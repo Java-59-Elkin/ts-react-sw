@@ -4,7 +4,11 @@ import StarWars from "./StarWars.tsx";
 import Contact from "./Contact.tsx";
 import {navItems} from "../utils/constants.ts";
 
-const Main = ({page}:{ page: keyof typeof navItems }) => {
+interface MainProps {
+    page: string; // Change from `keyof string[]` to `string`
+}
+
+const Main: React.FC<MainProps> = ({page}) => {
 
     switch (page) {
         case navItems[1]:

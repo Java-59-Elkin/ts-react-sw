@@ -1,6 +1,10 @@
 import Navigation from "./Navigation.tsx";
 
-const Header = ({changePage}) => {
+interface HeaderProps {
+    changePage: (page: string) => void
+}
+
+const Header: React.FC<HeaderProps> = ({changePage}) => {
     return (
         <header className={'rounded-t-2xl bg-grey-color'}>
             <Navigation changePage={changePage}/>

@@ -10,7 +10,7 @@ import friend9 from "../assets/friend9.jpg";
 
 export const base_url = 'https://sw-info-api.herokuapp.com';
 
-export const navItems = ['Home', 'About Me', 'Star Wars', 'Contact'];
+export const navItems: string[] = ['Home', 'About Me', 'Star Wars', 'Contact'];
 
 export const friends = [friend1, friend2, friend3, friend4, friend5, friend6, friend7, friend8, friend9];
 
