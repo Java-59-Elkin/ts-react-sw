@@ -1,4 +1,4 @@
-import StyledButton from "./StyledButton.jsx";
+import StyledButton from "./StyledButton.tsx";
 
 const Footer = () => {
     return (

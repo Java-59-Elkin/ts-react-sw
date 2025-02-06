@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {base_url, starWarsInfo} from "../utils/constants.ts";
+import {base_url} from "../utils/constants.ts";
 import StyledText from "./StyledText.tsx";
 // import main from "../assets/main.jpg";
 // import StyledText from "./StyledText.tsx";
